@@ -4,17 +4,20 @@ const avatarBtn = document.getElementById("avatarBtn");
 const canvas = document.getElementById("bgCanvas");
 const ctx = canvas.getContext("2d", { alpha: true });
 
+const secretOverlay = document.getElementById("secret-overlay");
+const closeSecretBtn = document.getElementById("closeSecret");
+const sigAvatar = document.getElementById("sigAvatar");
+
 function showPage() {
   setTimeout(() => {
-    welcome.classList.add("hide");
-    page.classList.add("ready");
+    welcome?.classList.add("hide");
+    page?.classList.add("ready");
   }, 1200);
 
   setTimeout(() => {
-    welcome.style.display = "none";
+    if (welcome) welcome.style.display = "none";
   }, 1600);
 }
-
 showPage();
 
 function fitCanvas() {
@@ -55,7 +58,7 @@ for (let i = 0; i < particleCount; i++) {
     x: rand(0, window.innerWidth),
     y: rand(0, window.innerHeight),
     vx: rand(-0.16, 0.16),
-    vy: rand(-0.10, 0.10),
+    vy: rand(-0.1, 0.1),
     r: rand(1.1, 3.2),
     a: rand(0.08, 0.26),
     color: `rgba(${c[0]},${c[1]},${c[2]},`,
@@ -99,7 +102,6 @@ function createBurst(x, y, count = 18) {
     "#FFFC00",
     "#1DB954"
   ];
-  const layer = document.body;
 
   for (let i = 0; i < count; i++) {
     const el = document.createElement("span");
@@ -119,7 +121,7 @@ function createBurst(x, y, count = 18) {
     el.style.setProperty("--dy", dy);
     el.style.setProperty("--rot", rot);
 
-    layer.appendChild(el);
+    document.body.appendChild(el);
     el.addEventListener("animationend", () => el.remove());
   }
 }
@@ -130,9 +132,53 @@ function tapPulse(btn) {
   btn.classList.add("pulse");
 }
 
+function openSecret() {
+  if (!secretOverlay) return;
+  secretOverlay.hidden = false;
+  requestAnimationFrame(() => {
+    secretOverlay.classList.add("is-open");
+  });
+  document.body.classList.add("no-scroll");
+}
+
+function closeSecret() {
+  if (!secretOverlay) return;
+  secretOverlay.classList.remove("is-open");
+  document.body.classList.remove("no-scroll");
+
+  setTimeout(() => {
+    secretOverlay.hidden = true;
+  }, 220);
+}
+
+let avatarClicks = 0;
+let avatarTimer = null;
+
 avatarBtn?.addEventListener("click", (e) => {
   tapPulse(avatarBtn);
   createBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 18);
+
+  avatarClicks++;
+  clearTimeout(avatarTimer);
+
+  avatarTimer = setTimeout(() => {
+    avatarClicks = 0;
+  }, 600);
+
+  if (avatarClicks === 3) {
+    avatarClicks = 0;
+    openSecret();
+  }
+});
+
+closeSecretBtn?.addEventListener("click", closeSecret);
+
+secretOverlay?.addEventListener("click", (e) => {
+  if (e.target === secretOverlay) closeSecret();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeSecret();
 });
 
 document.querySelectorAll(".card-link").forEach((card) => {
@@ -165,12 +211,9 @@ document.querySelectorAll(".card-link").forEach((card) => {
 });
 
 window.addEventListener("pointerdown", (e) => {
-  if (e.target.closest(".card-link") || e.target.closest(".avatar-btn")) return;
+  if (e.target.closest(".card-link") || e.target.closest(".profile-trigger") || e.target.closest("#secret-overlay")) return;
   createBurst(e.clientX, e.clientY, 10);
-}); 
-
-
-const sigAvatar = document.getElementById("sigAvatar");
+});
 
 sigAvatar?.addEventListener("click", (e) => {
   sigAvatar.classList.remove("pressed");

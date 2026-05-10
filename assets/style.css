@@ -1159,3 +1159,111 @@ body::before{
     justify-content:center;
   }
 }
+
+
+____________________________
+
+/* ستايل الطبقة المخفية */
+.secret-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* سواد خفيف */
+  backdrop-filter: blur(25px); /* التغبيش اللي طلبته - قوي وفخم */
+  -webkit-backdrop-filter: blur(25px);
+  display: grid;
+  place-items: center;
+  z-index: 9999; /* عشان يغطي كل الكوكب */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* حالة الظهور */
+.secret-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* الكارد نفسه */
+.secret-card {
+  background: linear-gradient(145deg, #171a23, #0a0c12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 35px;
+  padding: 40px 25px;
+  width: min(90%, 400px);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  transform: scale(0.8) translateY(30px);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.secret-overlay.active .secret-card {
+  transform: scale(1) translateY(0);
+}
+
+/* زر الإغلاق */
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.close-icon:hover { opacity: 1; }
+
+.secret-header h3 {
+  margin: 10px 0;
+  background: linear-gradient(90deg, #ff6d6d, #7483ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+}
+
+.profile-trigger {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.secret-overlay[hidden] {
+  display: none;
+}
+
+.secret-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.22s ease;
+  z-index: 9999;
+}
+
+.secret-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.secret-close {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
