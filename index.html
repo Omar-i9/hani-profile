@@ -1,165 +1,119 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0d14" />
-  <meta name="description" content="صفحة شخصية لهاني تعرض الروابط صفحاته الشخصية." />
-  <meta name="author" content="Hani" />
-  <title>هاني | Hani</title>
-
-  <link rel="icon" type="image/jpeg" href="image/hane.jpeg" />
-  <link rel="apple-touch-icon" href="image/hane.jpeg" />
-
-  <link rel="stylesheet" href="assets/style.css" />
-  <script defer src="assets/script.js"></script>
-  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="description" content="الصفحة الشخصية - هاني" />
+    <title>هاني | صفحاتي الشخصية</title>
+    
+    <!-- خطوط كلاسيكية وعصرية -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    
+    <!-- ربط ملف التنسيق -->
+    <link rel="stylesheet" href="assets/style.css" />
 </head>
-
 <body>
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-  <div class="orb orb-a" aria-hidden="true"></div>
-  <div class="orb orb-b" aria-hidden="true"></div>
-  <div class="orb orb-c" aria-hidden="true"></div>
-
-<div class="welcome" id="welcome">
-  <div class="welcome-card">
-    <div class="welcome-badge">
-      <img src="image/hane2.jpeg" alt="صورة هاني" class="welcome-img" />
-    </div>
-    <h1>انت كمان مرة؟</h1>
-  </div>
-</div>
-
- <main class="page" id="page">
-<div class="profile-section">
-  <div class="profile-card">
-    <div class="inner-frame">
-      <div class="img-wrapper">
-        <button class="profile-trigger" id="avatarBtn" type="button" aria-label="افتح القائمة السرية">
-          <img src="image/hane.jpeg" alt="Profile">
-        </button>
-      </div>
-
-      <div class="text-info">
-        <h3>هاني | Hani</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <section class="social-section" id="links">
-      <div class="section-head">
-        <h2>روابط التواصل</h2>
-        <span>اضغط لفتح الرابط</span>
-      </div>
-
-      <div class="links-grid">
-<a class="card-link tk-card" 
-     href="https://www.tiktok.com/@hane86712" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     data-link="https://www.tiktok.com/@hane86712">          <span class="icon-box">
-            <i class="fa-brands fa-tiktok"></i>
-          </span>
-          <span class="card-text">
-            <strong>TikTok</strong>
-            <small>hane86712</small>
-          </span>
-        </a>
-
-        <a class="card-link sc-card" 
-           href="https://www.snapchat.com/@hani_karameh" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           data-link="https://www.snapchat.com/@hani_karameh">
-          <span class="icon-box">
-          <i class="fa-brands fa-snapchat"></i>
-          </span>
-          <span class="card-text">
-            <strong>Snapchat</strong>
-            <small>@hani_karameh</small>
-          </span>
-        </a>
-
-        <a class="card-link ig-card" href="https://www.instagram.com/hane_karameh" data-link="https://www.instagram.com/hane_karameh" target="_blank" rel="noopener noreferrer">
-          <span class="icon-box">
-            <i class="fa-brands fa-instagram"></i>
-          </span>
-          <span class="card-text">
-            <strong>Instagram</strong>
-            <small>@hane_karameh</small>
-          </span>
-        </a>
-
-        <a class="card-link fb-card" href="https://www.facebook.com/hany.kramh.2025" data-link="https://www.facebook.com/hany.kramh.2025" target="_blank" rel="noopener noreferrer">
-          <span class="icon-box">
-            <i class="fa-brands fa-facebook"></i>
-          </span>
-          <span class="card-text">
-            <strong>Facebook</strong>
-            <small>@hany.kramh.2025</small>
-          </span>
-        </a>
-
-        <a class="card-link st-card" href="https://steamcommunity.com/profiles/76561198711013141" data-link="https://steamcommunity.com/profiles/76561198711013141" target="_blank" rel="noopener noreferrer">
-          <span class="icon-box">
-            <i class="fa-brands fa-steam"></i>
-          </span>
-          <span class="card-text">
-            <strong>Steam</strong>
-            <small>hane_karameh</small>
-          </span>
-        </a>
-
-        <a class="card-link threads-card" href="https://www.threads.com/@hane_karameh" data-link="https://www.threads.com/@hane_karameh" target="_blank" rel="noopener noreferrer">
-          <span class="icon-box">
-            <i class="fa-brands fa-threads"></i>
-          </span>
-          <span class="card-text">
-            <strong>Threads</strong>
-            <small>@hane_karameh</small>
-          </span>
-        </a>
-
-      </div>
-    </section>
-
-
-    </div>
-  </div>
-</div>
-  </main>
-
-<div id="secret-overlay" class="secret-overlay" hidden>
-  <section class="signature-section reveal">
-    <article class="signature-card standalone">
-      <button class="secret-close" id="closeSecret" type="button" aria-label="إغلاق">×</button>
-
-      <div class="sig-avatar-wrap">
-        <button class="sig-avatar" id="sigAvatar" aria-label="بصمة عمر">
-          <img src="image/me.jpeg" alt="عمر" />
-          <span class="sig-halo"></span>
-        </button>
-      </div>
-
-      <div class="sig-body">
-        <div class="sig-top">
-          <span class="sig-label">Omar</span>
+    <!-- ويدجت الآيات العائم والقابل للسحب -->
+    <div id="quran-widget" class="floating-quran">
+        <div class="drag-handle">
+            <i class="fa-solid fa-grip-lines"></i>
         </div>
-
-        <p class="sig-desc">تم انشاء الموقع بواسطة Omar AbuZeineh</p>
-
-        <div class="sig-links">
-          <a href="https://omar-i9.github.io/omar-i9/" target="_blank" rel="noopener noreferrer">
-            رابط صفحاتي الشخصية
-          </a>
+        <div class="quran-content">
+            <p id="verseText" class="verse-text">وَاصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا</p>
+            <span id="verseSurah" class="verse-surah">الطور - 48</span>
         </div>
-      </div>
-    </article>
-  </section>
-</div>
+    </div>
+
+    <!-- حاوية الجوال الرئيسية -->
+    <main class="mobile-container">
+        
+        <!-- القسم الشخصي -->
+        <header class="profile-header">
+            <div class="avatar-ring">
+                <img src="image/hane.jpeg" alt="هاني" class="avatar-img" onerror="this.src='https://ui-avatars.com/api/?name=Hani&background=D4AF37&color=000&size=150'">
+            </div>
+            <h1 class="user-name">هاني</h1>
+            <div class="divider"></div>
+        </header>
+
+        <!-- شبكة الروابط -->
+        <section class="links-list">
+            <a href="https://www.tiktok.com/@hane86712" target="_blank" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-tiktok"></i></div>
+                <div class="link-info">
+                    <span class="title">تيك توك</span>
+                    <span class="subtitle">@hane86712</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+            
+            <a href="https://www.snapchat.com/@hani_karameh" target="_blank" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-snapchat"></i></div>
+                <div class="link-info">
+                    <span class="title">سناب شات</span>
+                    <span class="subtitle">@hani_karameh</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <a href="https://www.instagram.com/hani_karameh/#"target="_blank" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+                <div class="link-info">
+                    <span class="title">إنستغرام</span>
+                    <span class="subtitle">@hane_karameh</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <a href="https://www.facebook.com/hany.kramh.2025" target="_blank" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                <div class="link-info">
+                    <span class="title">فيسبوك</span>
+                    <span class="subtitle">@hany.kramh.2025</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <a href="https://steamcommunity.com/profiles/76561198711013141" target="_blank" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-steam"></i></div>
+                <div class="link-info">
+                    <span class="title">ستيم</span>
+                    <span class="subtitle">hane_karameh</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <a href="https://www.threads.com/@hane_karameh" target="_blank" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-threads"></i></div>
+                <div class="link-info">
+                    <span class="title">ثريدز</span>
+                    <span class="subtitle">@hane_karameh</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- النافذة السرية المبسطة للمطور -->
+<!-- النافذة السرية المبسطة للمطور -->
+    <div id="secretOverlay" class="secret-overlay">
+        <div class="secret-box">
+            <img src="image/me.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Omar&background=111&color=D4AF37&size=100'" alt="Omar" class="secret-avatar">
+            <h3>Omar</h3>
+            <p>مُطوّر هذه الواجهة.</p>
+            
+            <!-- زر الانتقال إلى روابطك الشخصية -->
+            <a href="https://omar-i9.github.io/omar-i9/" target="_blank" class="dev-links-btn">
+                <i class="fa-solid fa-code-branch" style="margin-left: 8px;"></i>صفحاتي الشخصية
+            </a>
+
+            <button id="closeSecret" class="close-btn">إغلاق</button>
+        </div>
+    </div>
+    <script src="assets/script.js"></script>
 </body>
 </html>
